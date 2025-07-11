@@ -1,0 +1,19 @@
+{
+  "apps": [
+    {
+      "name": "tekvosoft-backend",
+      "script": "./dist/server.js",
+      "cwd": "/home/codatendechat-main/backend",
+      "instances": 1,
+      "exec_mode": "fork",
+      "watch": false,
+      "env": {
+        "NODE_ENV": "production",
+        "PORT": "3000"
+      },
+      "error_file": "/var/log/pm2/tekvosoft-backend-error.log",
+      "out_file": "/var/log/pm2/tekvosoft-backend-out.log",
+      "log_file": "/var/log/pm2/tekvosoft-backend.log"
+    }
+  ]
+}
