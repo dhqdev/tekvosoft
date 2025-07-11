@@ -121,3 +121,4 @@ Para problemas, verifique os logs:
 pm2 logs tekvosoft-backend
 sudo tail -f /var/log/nginx/error.log
 ```
+
