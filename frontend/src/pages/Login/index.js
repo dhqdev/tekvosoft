@@ -37,37 +37,115 @@ const useStyles = makeStyles(theme => ({
 	root: {
 		width: "100vw",
 		height: "100vh",
-		//background: "linear-gradient(to right, #682EE3 , #682EE3 , #682EE3)",
-		//backgroundImage: "url(https://i.imgur.com/CGby9tN.png)",
-		backgroundColor: theme.palette.primary.main,
-		backgroundRepeat: "no-repeat",
-		backgroundSize: "100% 100%",
-		backgroundPosition: "center",
+		background: theme.palette.type === 'light' ? 
+			"linear-gradient(135deg, #667eea 0%, #764ba2 100%)" : 
+			"linear-gradient(135deg, #0f172a 0%, #1e293b 100%)",
+		backgroundAttachment: "fixed",
 		display: "flex",
 		flexDirection: "column",
 		alignItems: "center",
 		justifyContent: "center",
 		textAlign: "center",
-		position: "relative"
+		position: "relative",
+		"&::before": {
+			content: '""',
+			position: "absolute",
+			top: 0,
+			left: 0,
+			right: 0,
+			bottom: 0,
+			background: theme.palette.type === 'light' ? 
+				"radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%), radial-gradient(circle at 40% 80%, rgba(120, 119, 198, 0.2) 0%, transparent 50%)" :
+				"radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.2) 0%, transparent 50%), radial-gradient(circle at 40% 80%, rgba(139, 92, 246, 0.2) 0%, transparent 50%)",
+			animation: "$backgroundAnimation 15s ease-in-out infinite",
+		}
+	},
+	"@keyframes backgroundAnimation": {
+		"0%, 100%": {
+			opacity: 1,
+		},
+		"50%": {
+			opacity: 0.8,
+		},
 	},
 	paper: {
-		backgroundColor: theme.palette.login,
+		backgroundColor: theme.palette.type === 'light' ? 
+			'rgba(255, 255, 255, 0.95)' : 
+			'rgba(30, 41, 59, 0.95)',
+		backdropFilter: "blur(20px)",
+		border: theme.palette.type === 'light' ? 
+			'1px solid rgba(255, 255, 255, 0.2)' : 
+			'1px solid rgba(139, 92, 246, 0.2)',
 		display: "flex",
 		flexDirection: "column",
 		alignItems: "center",
-		padding: "55px 30px",
-		borderRadius: "12.5px",
+		padding: "60px 40px",
+		borderRadius: "24px",
+		boxShadow: theme.palette.type === 'light' ? 
+			"0 25px 50px -12px rgba(0, 0, 0, 0.25)" :
+			"0 25px 50px -12px rgba(0, 0, 0, 0.5)",
+		position: "relative",
+		zIndex: 1,
+		minWidth: "400px",
+		maxWidth: "500px",
+		transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+		"&:hover": {
+			transform: "translateY(-8px)",
+			boxShadow: theme.palette.type === 'light' ? 
+				"0 35px 60px -12px rgba(0, 0, 0, 0.3)" :
+				"0 35px 60px -12px rgba(0, 0, 0, 0.6)",
+		}
 	},
 	avatar: {
 		margin: theme.spacing(1),  
 		backgroundColor: theme.palette.secondary.main,
 	},
 	form: {
-		width: "100%", // Fix IE 11 issue.
-		marginTop: theme.spacing(1),
+		width: "100%",
+		marginTop: theme.spacing(2),
+		"& .MuiTextField-root": {
+			marginBottom: theme.spacing(2),
+			"& .MuiOutlinedInput-root": {
+				borderRadius: "12px",
+				transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+				backgroundColor: theme.palette.type === 'light' ? 
+					'rgba(255, 255, 255, 0.8)' : 
+					'rgba(51, 65, 85, 0.8)',
+				"&:hover": {
+					backgroundColor: theme.palette.type === 'light' ? 
+						'rgba(255, 255, 255, 0.9)' : 
+						'rgba(51, 65, 85, 0.9)',
+					boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+				},
+				"&.Mui-focused": {
+					backgroundColor: theme.palette.type === 'light' ? 
+						'rgba(255, 255, 255, 1)' : 
+						'rgba(51, 65, 85, 1)',
+					boxShadow: theme.palette.type === 'light' ? 
+						"0 0 0 3px rgba(103, 126, 234, 0.1)" :
+						"0 0 0 3px rgba(139, 92, 246, 0.2)",
+				}
+			}
+		}
 	},
 	submit: {
 		margin: theme.spacing(3, 0, 2),
+		padding: theme.spacing(1.5, 4),
+		background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+		borderRadius: "12px",
+		fontSize: "16px",
+		fontWeight: 600,
+		textTransform: "none",
+		boxShadow: "0 4px 15px 0 rgba(103, 126, 234, 0.4)",
+		transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+		"&:hover": {
+			background: "linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%)",
+			transform: "translateY(-2px)",
+			boxShadow: "0 8px 25px 0 rgba(103, 126, 234, 0.5)",
+		},
+		"&:active": {
+			transform: "translateY(0px)",
+		}
 	},
 	powered: {
 		color: "white"

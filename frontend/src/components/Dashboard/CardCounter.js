@@ -8,19 +8,33 @@ import { grey } from '@material-ui/core/colors';
 
 const useStyles = makeStyles(theme => ({
 	cardAvatar: {
-		fontSize: '55px',
-		color: grey[500],
-		backgroundColor: '#ffffff',
-		width: theme.spacing(7),
-		height: theme.spacing(7)
+		fontSize: '48px',
+		color: 'rgba(255, 255, 255, 0.9)',
+		backgroundColor: 'rgba(255, 255, 255, 0.15)',
+		backdropFilter: 'blur(10px)',
+		width: theme.spacing(8),
+		height: theme.spacing(8),
+		border: '2px solid rgba(255, 255, 255, 0.2)',
+		transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+		'&:hover': {
+			transform: 'scale(1.05)',
+			backgroundColor: 'rgba(255, 255, 255, 0.25)',
+		}
 	},
 	cardTitle: {
-		fontSize: '18px',
-		color: theme.palette.text.primary
+		fontSize: '24px',
+		fontWeight: 700,
+		color: '#ffffff',
+		textShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+		letterSpacing: '0.5px',
 	},
 	cardSubtitle: {
-		color: grey[600],
-		fontSize: '14px'
+		color: 'rgba(255, 255, 255, 0.8)',
+		fontSize: '14px',
+		fontWeight: 500,
+		textTransform: 'uppercase',
+		letterSpacing: '1px',
+		marginTop: '4px',
 	}
 }));
 

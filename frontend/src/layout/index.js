@@ -53,24 +53,42 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       height: "calc(100vh - 56px)",
     },
-    backgroundColor: theme.palette.fancyBackground,
+    background: theme.palette.type === "light" ? 
+      "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)" : 
+      "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)",
     '& .MuiButton-outlinedPrimary': {
       color: theme.mode === 'light' ? '#FFF' : '#FFF',
-	  //backgroundColor: theme.mode === 'light' ? '#682ee2' : '#682ee2',
-	backgroundColor: theme.mode === 'light' ? theme.palette.primary.main : '#1c1c1c',
-      //border: theme.mode === 'light' ? '1px solid rgba(0 124 102)' : '1px solid rgba(255, 255, 255, 0.5)',
+      background: theme.mode === 'light' ? 
+        "linear-gradient(135deg, #667eea 0%, #764ba2 100%)" : 
+        "linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%)",
+      borderRadius: "8px",
+      transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+      border: "none",
+      padding: "8px 16px",
+      fontWeight: 500,
+      "&:hover": {
+        transform: "translateY(-1px)",
+        boxShadow: "0 8px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1)",
+        background: theme.mode === 'light' ? 
+          "linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%)" : 
+          "linear-gradient(135deg, #7C3AED 0%, #9333EA 100%)",
+      }
     },
     '& .MuiTab-textColorPrimary.Mui-selected': {
-      color: theme.mode === 'light' ? 'Primary' : '#FFF',
+      color: theme.mode === 'light' ? '#667eea' : '#8B5CF6',
+      fontWeight: 600,
     }
   },
   avatar: {
     width: "100%",
   },
   toolbar: {
-    paddingRight: 24, // keep right padding when drawer closed
-    color: theme.palette.dark.main,
+    paddingRight: 24,
+    color: "#ffffff",
     background: theme.palette.barraSuperior,
+    backdropFilter: "blur(10px)",
+    borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
+    boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
   },
   toolbarIcon: {
     display: "flex",
@@ -115,6 +133,13 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     whiteSpace: "nowrap",
     width: drawerWidth,
+    background: theme.palette.type === "light" ? 
+      "rgba(255, 255, 255, 0.95)" : 
+      "rgba(30, 41, 59, 0.95)",
+    backdropFilter: "blur(10px)",
+    borderRight: theme.palette.type === "light" ? 
+      "1px solid rgba(0, 0, 0, 0.08)" : 
+      "1px solid rgba(255, 255, 255, 0.08)",
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,

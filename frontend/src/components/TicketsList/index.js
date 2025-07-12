@@ -24,47 +24,73 @@ const useStyles = makeStyles((theme) => ({
 		height: "100%",
 		flexDirection: "column",
 		overflow: "hidden",
-		borderTopRightRadius: 0,
+		borderRadius: "16px 0 0 16px",
+		background: theme.palette.type === 'light' ? 
+			"rgba(255, 255, 255, 0.8)" : 
+			"rgba(30, 41, 59, 0.8)",
+		backdropFilter: "blur(10px)",
+		border: theme.palette.type === 'light' ? 
+			"1px solid rgba(255, 255, 255, 0.2)" : 
+			"1px solid rgba(255, 255, 255, 0.1)",
 		marginRight: -8,
-		borderBottomRightRadius: 0,
 	},
 
 	ticketsList: {
 		flex: 1,
 		overflowY: "scroll",
 		...theme.scrollbarStyles,
-		borderTop: "2px solid rgba(0, 0, 0, 0.12)",
+		borderTop: theme.palette.type === 'light' ? 
+			"2px solid rgba(103, 126, 234, 0.1)" : 
+			"2px solid rgba(139, 92, 246, 0.2)",
 	},
 
 	ticketsListHeader: {
-		color: "rgb(67, 83, 105)",
+		color: theme.palette.type === 'light' ? "#374151" : "#f1f5f9",
 		zIndex: 2,
-		backgroundColor: "white",
-		borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
+		background: theme.palette.type === 'light' ? 
+			"linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)" : 
+			"linear-gradient(135deg, #1e293b 0%, #334155 100%)",
+		backdropFilter: "blur(10px)",
+		borderBottom: theme.palette.type === 'light' ? 
+			"1px solid rgba(0, 0, 0, 0.05)" : 
+			"1px solid rgba(255, 255, 255, 0.05)",
 		display: "flex",
 		alignItems: "center",
 		justifyContent: "space-between",
+		padding: "16px 20px",
+		borderRadius: "16px 0 0 0",
+		boxShadow: theme.palette.type === 'light' ? 
+			"0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)" :
+			"0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2)",
 	},
 
 	ticketsCount: {
-		fontWeight: "normal",
-		color: "rgb(104, 121, 146)",
+		fontWeight: 600,
+		color: theme.palette.type === 'light' ? "#6b7280" : "#9ca3af",
 		marginLeft: "8px",
 		fontSize: "14px",
+		background: theme.palette.type === 'light' ? 
+			"linear-gradient(135deg, #667eea 0%, #764ba2 100%)" : 
+			"linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%)",
+		"-webkit-background-clip": "text",
+		"-webkit-text-fill-color": "transparent",
+		"background-clip": "text",
 	},
 
 	noTicketsText: {
 		textAlign: "center",
-		color: "rgb(104, 121, 146)",
+		color: theme.palette.type === 'light' ? "#6b7280" : "#9ca3af",
 		fontSize: "14px",
-		lineHeight: "1.4",
+		lineHeight: "1.6",
+		padding: "40px 20px",
 	},
 
 	noTicketsTitle: {
 		textAlign: "center",
-		fontSize: "16px",
-		fontWeight: "600",
-		margin: "0px",
+		fontSize: "18px",
+		fontWeight: 600,
+		margin: "0px 0px 8px 0px",
+		color: theme.palette.type === 'light' ? "#374151" : "#f1f5f9",
 	},
 
 	noTicketsDiv: {
