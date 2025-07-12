@@ -17,6 +17,7 @@ import toastError from "../../errors/toastError";
 import { toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
 
+
 const useStyles = makeStyles((theme) => ({
 	ticketsListWrapper: {
 		position: "relative",
